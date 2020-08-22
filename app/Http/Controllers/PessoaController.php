@@ -34,6 +34,11 @@ class PessoaController extends Controller
         return redirect('/pessoas');
     }
 
+    public function show(Pessoa $pessoa)
+    {
+        return view('pessoa.show', compact('pessoa'));
+    }
+
     public function edit(Pessoa $pessoa)
     {
         return view('pessoa.create', compact('pessoa'));
@@ -48,7 +53,6 @@ class PessoaController extends Controller
 
     public function destroy(Pessoa $pessoa)
     {
-        dd($pessoa);
         $pessoa->delete();
 
         return redirect('/pessoas');
